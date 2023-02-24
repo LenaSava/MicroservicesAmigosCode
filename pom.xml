@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.study</groupId>
-    <artifactId>MicrocervicesAmigosCode</artifactId>
+    <artifactId>MicroservicesAmigosCode</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
@@ -13,6 +13,7 @@
         <module>fraud</module>
         <module>eurika-server</module>
         <module>clients</module>
+        <module>notification</module>
     </modules>
 
     <properties>
