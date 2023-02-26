@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="notification" />
+        <module name="apigw" />
         <module name="eurika-server" />
         <module name="clients" />
         <module name="fraud" />
