@@ -1,5 +1,6 @@
 package com.olena.study.customer;
 
+import com.olena.study.amqp.RabbitMQMessageProducer;
 import com.olena.study.clients.fraud.FraudCheckResponse;
 import com.olena.study.clients.fraud.FraudClient;
 import com.olena.study.clients.notification.NotificationClient;
@@ -14,7 +15,7 @@ public class CustomerService {
 
     private final CustomerRepository customerRepository;
     private final FraudClient fraudClient;
-    private final NotificationClient notificationClient;
+    private final RabbitMQMessageProducer producer;
 
     public void registerCustomer(CustomerRegistrationRequest request) {
         Customer customer = Customer.builder()
@@ -34,9 +35,12 @@ public class CustomerService {
         if(fraudCheckResponse.ifFraudster()) {
             throw new IllegalStateException("fraudster");
         }
+        NotificationRequest notificationRequest = new NotificationRequest(customer.getId(), customer.getEmail(),
+                String.format("Hi, %s, welcome to study", customer.getFirstName()));
         //todo: send notifications
-        notificationClient.sendNotification(new NotificationRequest(customer.getId(), customer.getEmail(),
-                String.format("Hi, %s, welcome to study", customer.getFirstName())));
+        producer.publish(
+                notificationRequest, "internal.exchange", "internal.notification.routing-key"
+        );
 
     }
 }

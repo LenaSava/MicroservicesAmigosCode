@@ -12,8 +12,24 @@
         <module name="eurika-server" />
         <module name="clients" />
         <module name="fraud" />
+        <module name="amqp" />
         <module name="customer" />
       </profile>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.26/8f8cf0372abf564913e9796623aac4c8ea44025a/lombok-1.18.26.jar" />
+        </processorPath>
+      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="amqp.main" target="17" />
+      <module name="amqp.test" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="amqp" options="-parameters" />
+    </option>
   </component>
 </project>
