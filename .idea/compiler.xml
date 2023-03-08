@@ -9,10 +9,10 @@
         <outputRelativeToContentRoot value="true" />
         <module name="notification" />
         <module name="apigw" />
-        <module name="eurika-server" />
         <module name="clients" />
         <module name="fraud" />
         <module name="amqp" />
+        <module name="eureka-server" />
         <module name="customer" />
       </profile>
       <profile name="Gradle Imported" enabled="true">
@@ -29,7 +29,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="amqp" options="-parameters" />
+      <module name="amqp" options="" />
     </option>
   </component>
 </project>
